@@ -63,7 +63,7 @@ const SignUpForm = () => {
 				if (res && res.data && res.data) {
 					console.log("Uploaded image:", res.data);
 					setProfilePhoto(res.data);
-					photoName = res.data;
+					var photoName = res.data;
 					photoURL = `/profilePhotos/${res.data}`;
 
 					console.log("photo name", photoName);

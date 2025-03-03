@@ -21,7 +21,7 @@ const Sidebar = () => {
 		fixed inset-y-0 left-0 z-10 w-64 bg-white shadow-md overflow-hidden transition-transform duration-300
 		 ease-in-out
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
-          lg:translate-x-0 lg:static lg:w-1/4
+          lg:translate-x-0 lg:static lg:w-1/5
 		`}
 			>
 				<div className='flex flex-col h-full bg-pink-200'>
@@ -66,7 +66,7 @@ const Sidebar = () => {
 				className='lg:hidden fixed top-4 left-4 p-2 bg-pink-500 text-white rounded-md z-0'
 				onClick={toggleSidebar}
 			>
-				<MessageCircle size={24} />
+				<MessageCircle size={30} />
 			</button>
 		</>
 	);

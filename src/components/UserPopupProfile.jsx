@@ -1,4 +1,4 @@
-import { Baby, Book, Briefcase, Cigarette, Dumbbell, GraduationCap, Ruler, Wine } from "lucide-react";
+import { Baby, Book, Briefcase, Cigarette, Dumbbell, GraduationCap, Ruler, Sparkles, Wine } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useAuthStore } from "../store/useAuthStore";
 import { usePhotoStore } from "../store/usePhotoStore";
@@ -32,6 +32,12 @@ const UserPopupProfile = ({ user, onClose }) => {
         }
     }, [matchPhotos]);
 
+    const getGenderSymbol = (gender) => {
+        if (gender === "Male") return "♂"; // Unicode Male Symbol
+        if (gender === "Female") return "♀"; // Unicode Female Symbol
+        return "⚧"; // Unicode Transgender Symbol for Non-Binary/Other
+    };
+
     // Swap images when clicking on a smaller image
     const swapImages = (index) => {
         if (pictures.length < 2) return; // No swapping if there are less than 2 images
@@ -54,8 +60,19 @@ const UserPopupProfile = ({ user, onClose }) => {
 
                 {/* Left Column: Bigger Profile Picture */}
                 <div className="w-1/2 flex flex-col items-center">
-                    <h2 className="text-xl font-semibold text-gray-800 text-center">{user.name}</h2>
+                    <div className="flex justify-center gap-4">
+                        {/* Gender Section */}
+                        <div className="flex items-center space-x-2 bg-gray-200 px-4 py-2 rounded-full text-pink-500 text-xl">
+                            {getGenderSymbol(user.gender)}
+                            <span className="text-gray-800 font-semibold">{user.gender}</span>
+                        </div>
 
+                        {/* Star Sign Section */}
+                        <div className="flex items-center space-x-2 bg-gray-200 px-4 py-2 rounded-full text-2xl">
+                            <Sparkles className="w-5 h-5 text-yellow-500" />
+                            <span className="text-gray-800 font-semibold">{user.starSign}</span>
+                        </div>
+                    </div>
                     {/* Larger Main Profile Image */}
                     <div className="w-full h-64 rounded-md overflow-hidden border border-gray-300 mt-2">
                         <img

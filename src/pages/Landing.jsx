@@ -62,7 +62,7 @@ const HomeScreen = () => {
                     <p className="text-lg lg:text-xl opacity-90 text-gray-700">
                         Our unique algorithm helps you match with like-minded individuals who share your interests and values.
                     </p>
-                    
+
                     <div className="mt-6">
                         <Link to="/auth" className="bg-pink-500 hover:bg-pink-700 text-white font-semibold px-6 py-3 rounded-full shadow-lg transition duration-300">
                             Sign in
@@ -92,7 +92,7 @@ const HomeScreen = () => {
                 {/* Third Banner Image */}
                 <div className="lg:w-1/2 flex justify-center">
                     <img
-                        src="/third_banner.png"
+                        src="/fourth_section.png"
                         alt="Love and Connection"
                         className="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl w-full drop-shadow-lg"
                     />
@@ -103,7 +103,7 @@ const HomeScreen = () => {
             <div className="flex flex-col-reverse lg:flex-row items-center bg-white justify-between px-6 lg:px-16 min-h-screen">
                 <div className="lg:w-1/2 flex justify-center">
                     <img
-                        src="/fourth_banner.png"
+                        src="/third_section.png"
                         alt="Success Stories"
                         className="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl w-full drop-shadow-lg"
                     />

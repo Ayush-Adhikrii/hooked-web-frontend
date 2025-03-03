@@ -2,7 +2,7 @@ import { useState } from "react";
 import TinderCard from "react-tinder-card";
 import { getAge } from "../store/useDateStore";
 import { useMatchStore } from "../store/useMatchStore";
-import UserPopupProfile from "./UserPopupProfile"; // Import the popup profile component
+import UserPopupProfile from "./UserPopupProfile";
 
 const SwipeArea = () => {
 	const { userProfiles, swipeRight, swipeLeft } = useMatchStore();
@@ -26,7 +26,7 @@ const SwipeArea = () => {
 				>
 					{/* Button to Open Popup */}
 					<button onClick={() => setSelectedUser(user)}>
-						<div className="card bg-white w-96 h-[28rem] select-none rounded-lg overflow-hidden border border-gray-200">
+						<div className="card  bg-gradient-to-b from-pink-200 to-pink-500 w-96 h-[28rem] select-none rounded-lg overflow-hidden ">
 							<figure className="px-4 pt-4 h-3/4">
 								<img
 									src={user.profilePhoto ? `/profilePhotos/${user.profilePhoto}` : "/avatar.png"}
@@ -34,12 +34,14 @@ const SwipeArea = () => {
 									className="rounded-lg object-cover h-full pointer-events-none"
 								/>
 							</figure>
-							<div className="card-body bg-gradient-to-b from-white to-pink-50">
-								<h2 className="card-title text-2xl text-gray-800">
+							<div className="card-body">
+								<h2 className="card-title text-2xl text-white">
 									{user.name}, {getAge(user.birthDate)}
 								</h2>
-								<p className="text-gray-600">{user.bio}</p>
+
+								<p className="text-gray-300 text text-left">{user.bio}</p>
 							</div>
+
 						</div>
 					</button>
 				</TinderCard>

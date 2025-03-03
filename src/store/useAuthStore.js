@@ -8,7 +8,7 @@ export const useAuthStore = create((set) => ({
 	checkingAuth: true,
 	loading: false,
 	userDetails: null,
-	matchDetails:null,
+	matchDetails: null,
 
 	signup: async (signupData) => {
 		try {
@@ -56,7 +56,7 @@ export const useAuthStore = create((set) => ({
 
 			// Create a FormData object and append the image
 			const formData = new FormData();
-			formData.append("profilePicture", image);  // "profilePhoto" is the field name expected by your backend
+			formData.append("profilePicture", image);
 
 			// Make the request with the correct headers and FormData
 			const res = await axiosInstance.post("/auth/uploadImage", formData, {
@@ -110,6 +110,7 @@ export const useAuthStore = create((set) => ({
 
 			set({ authUser: res.data.user });
 			toast.success("Profile updated successfully");
+
 		} catch (error) {
 			// Log the error and show a proper error message
 			console.error("Update Profile Error:", error);
@@ -172,8 +173,10 @@ export const useAuthStore = create((set) => ({
 
 			// Log the response to ensure it's as expected
 			console.log("Update Profile Response:", res);
+			// toast.success("Details updated successfully");
+			set({ authUser: res.data.data });
 
-			toast.success("Details updated successfully");
+
 		} catch (error) {
 			// Log the error and show a proper error message
 			console.error("Update Profile Error:", error);
@@ -184,28 +187,21 @@ export const useAuthStore = create((set) => ({
 		}
 	},
 
+
+
 	checkPassword: async (userId, password) => {
-		console.log("inside check pw");
+		console.log("Inside checkPassword function:", userId, password);
 		try {
-			const response = await axios.post('auth/checkPassword', {
-				userId,
-				password
-			});
-			console.log("check password console",response.data);
+			const response = await axiosInstance.post("/auth/checkPassword", { userId, password });
+
+			console.log("Password validation result:", response.data);
 			return response.data;
 		} catch (error) {
-			if (error.response) {
-				return { success: false, message: error.response.data.message };
-			} else if (error.request) {
-				return { success: false, message: 'No response from server' };
-			} else {
-				return { success: false, message: 'Error setting up request' };
-			}
+			console.error("Error checking password:", error.response ? error.response.data : error);
+			const errorMessage = error.response?.data?.message || "Something went wrong";
+			toast.error(errorMessage);
+			return { success: false, message: errorMessage };
 		}
 	}
-
-
-
-
 
 }));

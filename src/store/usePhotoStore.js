@@ -15,6 +15,9 @@ export const usePhotoStore = create((set) => ({
         try {
             set({ loading: true });
             const res = await axiosInstance.get(`/photos/${userId}`);
+            console.log("pts", res)
+
+
             set({ photos: res });
         } catch (error) {
             console.log(error);
@@ -25,12 +28,14 @@ export const usePhotoStore = create((set) => ({
     },
 
     getMatchPhotos: async (userId) => {
-        console.log("the id being sent", userId);
+        console.log("the id being sent is", userId);
 
         try {
             set({ loading: true });
             const res = await axiosInstance.get(`/photos/${userId}`);
-            set({ matchPhotos: res });
+            console.log("pts", res)
+
+            set({ matchPhotos: res.data });
         } catch (error) {
             console.log(error);
             set({ matchPhotos: [] });

@@ -8,13 +8,12 @@ const AuthPage = () => {
 
 	return (
 		<div
-			className='min-h-screen flex items-center justify-center bg-gradient-to-br
-		from-red-500 to-pink-500 p-4
+			className='min-h-screen flex items-center justify-center bg-gradient-to-b from-[#E03368] to-[#ff6699] p-4
 	'
 		>
 			<div className='w-full max-w-md bg-transparent'>
 				<h2 className='text-center text-3xl font-extrabold text-white mb-8'>
-					{isLogin ? "Sign in to Swipe" : "Create a Swipe account"}
+					{isLogin ? "Sign in to Hooked" : "Create a Hooked account"}
 				</h2>
 
 				<div className='bg-transparent shadow-xl rounded-lg p-8' >
@@ -22,7 +21,7 @@ const AuthPage = () => {
 
 					<div className='mt-8 text-center bg-white mt-0  p-8 rounded-b-lg '>
 						<p className='text-sm text-gray-600'>
-							{isLogin ? "New to Swipe?" : "Already have an account?"}
+							{isLogin ? "New to Hooked?" : "Already have an account?"}
 						</p>
 
 						<button

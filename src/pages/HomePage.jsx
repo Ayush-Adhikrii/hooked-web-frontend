@@ -1,4 +1,4 @@
-import { Frown } from "lucide-react";
+import { Frown, Heart } from "lucide-react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BottomNavigation } from "../components/BottomNavigation";
@@ -7,7 +7,6 @@ import SwipeArea from "../components/SwipeArea";
 import SwipeFeedback from "../components/SwipeFeedback";
 import { useAuthStore } from "../store/useAuthStore";
 import { useMatchStore } from "../store/useMatchStore";
-
 import { useMessageStore } from "../store/useMessageStore";
 
 const HomePage = () => {
@@ -60,7 +59,13 @@ const HomePage = () => {
 							</Link>
 						))
 					) : (
-						<p className="text-sm text-gray-500 text-center">No matches yet.</p>
+						<div className='flex flex-col items-center justify-center h-full text-center'>
+							<Heart className='text-pink-400 mb-4' size={48} />
+							<h3 className='text-xl font-semibold text-gray-700 mb-2'>No Matches Yet</h3>
+							<p className='text-gray-500 max-w-xs'>
+								Don&apos;t worry! Your perfect match is just around the corner. Keep swiping!
+							</p>
+						</div>
 					)}
 				</div>
 			</div>
